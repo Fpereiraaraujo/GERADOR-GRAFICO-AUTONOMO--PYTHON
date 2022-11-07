@@ -7,8 +7,8 @@ from matplotlib.pyplot import axes
 
 def update_figure(data):
     axes = fig.axes
-    x = [i[0] for i in data]
-    y = [int(i[1]) for i in data]
+    x = 0.5 + np.arange(8)
+    y = np.random.uniform(2, 7, len(x))
     axes[0].plot(x,y,'r-')
     figure_canvas_agg.draw()
     figure_canvas_agg.get_tk_widget().pack()
@@ -34,7 +34,7 @@ window = sg.Window('Graph App', layout, finalize = True)
 # matplotlib
 
 fig = matplotlib.figure.Figure(figsize = (5,4))
-fig.add_subplot(111).plot([],[])
+fig.add_subplot(11).plot([],[])
 figure_canvas_agg = FigureCanvasTkAgg(fig,window['-CANVAS-'].TKCanvas)
 figure_canvas_agg.draw()
 figure_canvas_agg.get_tk_widget().pack()
